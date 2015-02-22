@@ -62,6 +62,19 @@ run_analysis <- function() {
     data.frame(dataSet2)
 }
 
+# Method to read the output files
+get_tidy_data_set = function(summarised=FALSE) {
+    filePath = "./data/result_step_4.txt"
+    if(summarised) filePath = "./data/result_step_5.txt"
+    if(file.exists(filePath)){
+        dataSet <- read.table(filePath)
+    } else {
+        stop("File doesn\'t exists. Please run the method run_analysis() first.")
+    }
+    
+    dataSet
+}
+
 ## HELPER Methods
 
 # Method to pull the file from the Web in a more efficient way.
